@@ -10,11 +10,13 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import GameLogic.UserService;
+import GameLogic.WindowCloseOperation;
 
 import java.awt.GridLayout;
 import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
 import java.awt.Panel;
+import java.awt.TextField;
 import java.awt.Window;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -29,7 +31,7 @@ public class LogScreen {
 	private Panel panel_1;
 	private JLabel lblNewLabel_1;
 	private JTextField textField_1;
-	private JPasswordField passwordField;
+	private TextField passwordField;
 	private Button button;
 
 	/**
@@ -59,10 +61,12 @@ public class LogScreen {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 192, 203));
 		frame.setBounds(100, 100, 665, 357);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frame.addWindowListener(new WindowCloseOperation());
 		frame.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		panel_1 = new Panel();
@@ -82,8 +86,8 @@ public class LogScreen {
 		
 		JLabel lblNewLabel = new JLabel("Password");
 		panel.add(lblNewLabel);
-		
-		passwordField = new JPasswordField();
+		passwordField = new TextField();
+		passwordField.setEchoChar('\u2022');
 		passwordField.setColumns(10);
 		panel.add(passwordField);
 		

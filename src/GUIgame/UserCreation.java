@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import GameLogic.UserService;
+import GameLogic.WindowCloseOperation;
 
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -51,7 +52,8 @@ public class UserCreation {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 652, 357);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frame.addWindowListener(new WindowCloseOperation());
 		
 		Panel panel = new Panel();
 		frame.getContentPane().add(panel, BorderLayout.NORTH);

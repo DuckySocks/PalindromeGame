@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import javax.swing.JTextField;
 
 import GameLogic.GameLogic;
+import GameLogic.WindowCloseOperation;
 
 import javax.swing.JButton;
 import java.awt.Color;
@@ -51,7 +52,8 @@ public class GamePlay {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 669, 469);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frame.addWindowListener(new WindowCloseOperation ());
 
 		JTextArea txtrInTheSpace = new JTextArea();
 		txtrInTheSpace.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
@@ -100,7 +102,7 @@ public class GamePlay {
 				NoResult window = new NoResult();
 				window.frame.setVisible(true);
 				} else {
-					NoResult window =new NoResult();
+					YesResult window = new YesResult();
 					window.frame.setVisible(true);
 				}
 			}

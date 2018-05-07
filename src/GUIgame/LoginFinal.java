@@ -10,6 +10,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
 import GameLogic.UserService;
+import GameLogic.WindowCloseOperation;
 
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
@@ -48,7 +49,8 @@ public class LoginFinal {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 668, 492);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frame.addWindowListener(new WindowCloseOperation());
 		
 		JLabel lblWelcomeToThe = new JLabel("WELCOME TO THE PALINDROME GAME");
 		lblWelcomeToThe.setForeground(Color.BLUE);

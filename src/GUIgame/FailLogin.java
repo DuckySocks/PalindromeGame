@@ -8,6 +8,9 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.SwingConstants;
+
+import GameLogic.WindowCloseOperation;
+
 import java.awt.Label;
 
 public class FailLogin {
@@ -44,7 +47,8 @@ public class FailLogin {
 		frame = new JFrame();
 		frame.setBackground(new Color(255, 165, 0));
 		frame.setBounds(100, 100, 477, 316);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		
 		
 		Label label = new Label("Wrong login credentials. Please try again");
 		label.setBackground(new Color(255, 165, 0));

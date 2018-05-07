@@ -9,6 +9,7 @@ import java.awt.Color;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
+import GameLogic.Files;
 import GameLogic.UserService;
 
 import javax.swing.JButton;
@@ -46,9 +47,11 @@ public class WelcomeScreen {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		UserService.users = Files.getFromFile();
 		frame = new JFrame();
 		frame.setBounds(100, 100, 668, 492);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frame.addWindowListener(new GameLogic.WindowCloseOperation());
 		
 		JLabel lblWelcomeToThe = new JLabel("WELCOME TO THE PALINDROME GAME");
 		lblWelcomeToThe.setForeground(Color.BLUE);
